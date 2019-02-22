@@ -105,7 +105,7 @@
             margin-bottom: $base-spacing * 8;
 
             &-sub {
-                max-width: $base-width * 3.8;
+                max-width: $base-width * 3.5;
 
                 @media all and (max-width: $small-tablet) {
                     max-width: 100%;
