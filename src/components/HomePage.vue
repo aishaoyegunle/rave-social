@@ -33,7 +33,6 @@
 <script>
   import MainHeader from './ui/Header.vue'
   import Product from './ui/Product.vue'
-  import ProductModal from './ProductModal.vue'
 
   const products = {
     firstProducts: [
@@ -126,7 +125,6 @@
     components: {
       MainHeader,
       Product,
-      ProductModal,
     },
     data() {
       return {
@@ -189,6 +187,7 @@
             display: flex;
             justify-content: center;
             cursor: pointer;
+            margin-top: $base-spacing;
 
 
             a {

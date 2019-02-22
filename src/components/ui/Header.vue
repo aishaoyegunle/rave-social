@@ -5,6 +5,7 @@
                 <div class="heading__top--lg-cart" v-if="showCart==false">
                     <router-link to="/checkout">
                         <img src="../../assets/images/cart@2x.png" alt="Cart">
+                        <span class="label">{{cartCount}}</span>
                         <span>Cart</span>
                     </router-link>
                 </div>
@@ -14,8 +15,10 @@
                     <h1>{{header}}</h1>
                 </div>
                 <div class="heading__top--sm-cart" v-if="showCart== false">
-                    <span class="label">{{this.count}}</span>
-                    <img src="../../assets/images/bag@2x.png" alt="Cart">
+                    <router-link to="/checkout">
+                        <span class="label">{{cartCount}}</span>
+                        <img src="../../assets/images/bag@2x.png" alt="Cart">
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -38,9 +41,13 @@
       subheader: {type: String, required: false},
       showCart: {type: Boolean, required: false}
     },
-     created() {
-      this.count = this.$store.getters.getCartCount;
-    },
+     computed: {
+         cartCount(){
+            let num = this.count;
+            num = this.$store.getters.getCartCount;
+            return num
+         }
+    }
   }
 </script>
 
@@ -84,6 +91,19 @@
                 justify-content: flex-end;
                 padding-top: $base-spacing * 2;
 
+                &-cart{
+                    position: relative;
+                    padding: $base-spacing;
+                    .label{
+                        position: absolute;
+                        padding: $base-spacing*.3 $base-spacing * .6;
+                        border-radius: 50%;
+                        background-color: $gold;
+                        top: 0;
+                        right: 0;
+                        font-size: 1rem;
+                    }
+                }
             }
 
             @media all and (max-width: $small-tablet) {
@@ -110,6 +130,7 @@
                 @media all and (max-width: $small-tablet) {
                     max-width: 100%;
                     margin-bottom: $base-spacing * 2;
+                    padding: $base-spacing;
                 }
             }
 

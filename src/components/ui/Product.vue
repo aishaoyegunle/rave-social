@@ -22,8 +22,8 @@
           </div>
           <div class="product__sub">
             <div class="product__info">{{product.info}}</div>
-            <div class="product__add" id="btn--add" v-if="!isInCart"><a @click="addItem">Add to cart</a></div>
-            <div class="product__remove" id="btn--remove" v-if="isInCart"><a @click="removeItem">Remove from cart</a></div>
+            <div class="product__add" id="btn--add" @click="addItem" v-if="!isInCart"><a >Add to cart</a></div>
+            <div class="product__remove" id="btn--remove" @click="removeItem" v-if="isInCart"><a>Remove from cart</a></div>
           </div>
         </div>
 

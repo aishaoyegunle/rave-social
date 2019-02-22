@@ -9,7 +9,7 @@ Vue.use(FlashMessage);
 Vue.config.productionTip = false;
 
 Vue.filter( 'currency', function(value){
-  return "N " + parseFloat(value).toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "0,");
+  return "N " + parseFloat(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 })
 
 new Vue({
