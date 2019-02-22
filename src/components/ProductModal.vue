@@ -2,18 +2,18 @@
     <transition name="modal">
         <div class="modal__mask">
                 <div class="modal__container">
-                        <div class="modal--close">
-                            <a title="Close" @click="close"><img src="../assets/images/close-circled@3x.png" alt=""></a>
+                        <div class="modal--close" @click="close">
+                            <a title="Close"><img src="../assets/images/close-circled@3x.png" alt=""></a>
                         </div>
                         <div class="modal__img">
                             <img src="../assets/images/23594856-129246067847338-9082105923924656128-n@2x.png" alt="product img" >
-                            <div class="modal__img--price">N240,000</div>
+                            <div class="modal__img--price">{{product.price}}</div>
                         </div>
                         <div class="modal--text">
-                            <h2>Gucci Flops: Men shoe</h2>
+                            <h2>{{product.name}}</h2>
                             <p>2 Left</p>
                         </div>
-                        <div class="modal--size">Available in sizes 32, 34</div>
+                        <div class="modal--size">{{product.info}}</div>
                         <div class="modal--qty">
                             <span class="btn btn--minus" @click="decrement">
                                 -
@@ -23,11 +23,14 @@
                             </span>
                             <span class="btn btn--plus" @click="increment">+</span>
                         </div>
-                        <div class="modal--add">
-                            <a class="btn btn--black"> ADD TO CART</a>
+                        <div class="modal--add" id="btn--add" @click="addItem">
+                            <a class="btn btn--black" > ADD TO CART</a>
+                        </div>
+                        <div class="modal--remove" id="btn--remove" @click="removeItem" >
+                            <a class="btn btn--black" > REMOVE FROM CART</a>
                         </div>
                         <div class="modal--checkout">
-                            <a class="btn btn--white"> Checkout now</a>
+                            <router-link to="/checkout" class="btn btn--white"> Checkout now</router-link>
                         </div>
             </div>
         </div>
@@ -37,6 +40,7 @@
 <script>
 export default {
     name: 'ProductModal',
+    props: ['product'],
     data() {
         return {
             quantity: 1
@@ -51,6 +55,21 @@ export default {
       },
       decrement() {
           this.quantity = this.quantity < 1 ? 0 : this.quantity - 1;
+      },
+       removeItem() {
+          this.$store.commit('REMOVE_FROM_CART', this.index);
+          document.getElementById("btn--remove").style.display = "none";
+          document.getElementById("btn--add").style.display = "block";
+      },
+      addItem(){
+          const data = {
+              product: this.product,
+              quantity: this.quantity,
+          }
+        this.$store.commit('ADD_TO_CART', data);
+        this.close();
+        document.getElementById("btn--add").style.display = "none";
+        document.getElementById("btn--remove").style.display = "block";
       }
     },
 }
@@ -88,6 +107,10 @@ export default {
         @media all and (max-width: $small-tablet) {
             margin-top: $base-spacing*8;
           }
+
+        #btn--remove{
+            display: none;
+        }
     }
 
     &--close{
@@ -95,9 +118,7 @@ export default {
         top: 0;
         right: 0;
         padding: $base-spacing;
-        a{
-            cursor: pointer;
-        }
+        cursor: pointer;
     }
 
     &__img{
@@ -169,14 +190,26 @@ export default {
         margin: $base-spacing;
         cursor: pointer;
     }
-    &--checkout{
+    &--remove{
         width: 95%;
-        background-color: $white;
-        color: $font-light;
+        background-color: $gold;
+        color: $white;
         text-align: center;
         padding: $base-spacing 0;
         margin: $base-spacing;
         cursor: pointer;
+    }
+    &--checkout{
+        width: 95%;
+        background-color: $white;
+        text-align: center;
+        padding: $base-spacing 0;
+        margin: $base-spacing;
+        a{
+            text-decoration: none;
+            color: $font-light;
+
+        }
     }
 
     &-enter,

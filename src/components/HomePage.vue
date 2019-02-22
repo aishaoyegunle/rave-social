@@ -27,7 +27,6 @@
           <span class="social--line"></span>
 
         </div>
-        <product-modal v-if="showModal" @close="hideModal"></product-modal>
     </div>
 </template>
 

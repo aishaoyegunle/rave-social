@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <main-header :header="header"></main-header>
+        <main-header :header="header" class="cart__header" :showCart="showCart"></main-header>
         <div class="cart-container">
             <cart-item
                     v-for="(product, key) in products" :index="key"
@@ -29,6 +29,7 @@
 
   const headerDetails = {
     header: 'Your Cart',
+    showCart: true,
   };
 
   export default {
@@ -85,7 +86,11 @@
                  }
              }
         }
-
+        // &__header{
+        //     @media all and (max-width: $small-tablet) {
+        //       text-align: center;
+        //     }
+        // }
         &__checkout {
             margin-top: 10px;
 

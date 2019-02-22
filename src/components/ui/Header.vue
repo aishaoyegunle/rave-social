@@ -2,19 +2,19 @@
     <div class="heading">
         <div class="heading__top">
             <div class="heading__top--lg">
-                <div class="heading__top--lg-cart">
+                <div class="heading__top--lg-cart" v-if="showCart==false">
                     <router-link to="/checkout">
                         <img src="../../assets/images/cart@2x.png" alt="Cart">
                         <span>Cart</span>
                     </router-link>
                 </div>
             </div>
-            <div class="heading__top--sm">
+            <div class="heading__top--sm" >
                 <div class="heading__top--sm-title">
                     <h1>{{header}}</h1>
                 </div>
-                <div class="heading__top--sm-cart">
-                    <span class="label">3</span>
+                <div class="heading__top--sm-cart" v-if="showCart== false">
+                    <span class="label">{{this.count}}</span>
                     <img src="../../assets/images/bag@2x.png" alt="Cart">
                 </div>
             </div>
@@ -37,7 +37,10 @@
       header: { type: String, required: true},
       subheader: {type: String, required: false},
       showCart: {type: Boolean, required: false}
-    }
+    },
+     created() {
+      this.count = this.$store.getters.getCartCount;
+    },
   }
 </script>
 

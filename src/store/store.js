@@ -10,6 +10,7 @@ export default new Vuex.Store({
     productsInCart: [
       {
         product: {
+          id: 'f001',
           src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
           price: 240000,
           name: 'Gucci Flops: Men shoe',

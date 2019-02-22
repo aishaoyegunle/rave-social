@@ -22,12 +22,13 @@
           </div>
           <div class="product__sub">
             <div class="product__info">{{product.info}}</div>
-            <div class="product__add"><a>Add to cart</a></div>
+            <div class="product__add" id="btn--add"><a @click="addItem">Add to cart</a></div>
+            <div class="product__remove" id="btn--remove"><a @click="addItem">Remove from cart</a></div>
           </div>
         </div>
 
 
-        <product-modal v-show="isModalVisible" @close="closeModal"/>
+        <product-modal v-show="isModalVisible" @close="closeModal" :product="product" />
     </div>
 </template>
 
@@ -51,6 +52,20 @@ import ProductModal from '../ProductModal.vue'
       },
       closeModal() {
         this.isModalVisible = false;
+      },
+       removeItem() {
+          this.$store.commit('REMOVE_FROM_CART', this.index);
+          document.getElementById("btn--remove").style.display = "none";
+          document.getElementById("btn--add").style.display = "block";
+      },
+      addItem(){
+          const data = {
+              product: this.product,
+              quantity: this.quantity,
+          }
+        this.$store.commit('ADD_TO_CART', data);
+        document.getElementById("btn--add").style.display = "none";
+        document.getElementById("btn--remove").style.display = "block";
       }
     }
   }
@@ -148,6 +163,9 @@ import ProductModal from '../ProductModal.vue'
                 justify-content: space-between;
                 align-items: center;
                 padding: $base-spacing;
+                #btn--remove{
+                  display: none;
+                }
               }
               &__info{
                 color: $font-light;
@@ -155,6 +173,11 @@ import ProductModal from '../ProductModal.vue'
               &__add{
                 background-color: $gold;
                 padding: $base-spacing;
+              }
+              &__remove{
+                background-color: $dark-grey;
+                padding: $base-spacing;
+                color: $white;
               }
           }
           
