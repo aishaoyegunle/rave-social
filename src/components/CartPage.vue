@@ -3,8 +3,8 @@
         <main-header :header="header"></main-header>
         <div class="cart-container">
             <cart-item
-                    v-for="(product, key) in products"
-                    :key="key" :product="product" :quantity="2"
+                    v-for="(product, key) in products" :index="key"
+                    :key="key" :product="product.product" :quantity="product.quantity"
             >
             </cart-item>
             <div class="cart-total">
@@ -27,21 +27,6 @@
   import CartItem from "./ui/CartItem";
   import axios from 'axios';
 
-  const products = [
-    {
-      src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
-      price: '240,000',
-      name: 'Gucci Flops: Men shoe',
-      info: 'Available in 44,45,46',
-    },
-    {
-      src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
-      price: '240,000',
-      name: 'Gucci Flops: Men shoe',
-      info: 'Available in 44,45,46',
-    },
-  ];
-
   const headerDetails = {
     header: 'Your Cart',
   };
@@ -55,8 +40,11 @@
     data() {
       return {
         ...headerDetails,
-        products
+        products: []
       }
+    },
+    created() {
+      this.products = this.$store.getters.getProductsInCart;
     },
     methods: {
       checkout() {

@@ -50,7 +50,7 @@ export default {
           this.quantity += 1;
       },
       decrement() {
-          this.quantity -= 1;
+          this.quantity = this.quantity < 1 ? 0 : this.quantity - 1;
       }
     },
 }

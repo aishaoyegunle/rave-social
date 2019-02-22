@@ -81,6 +81,7 @@
       {
         src: 'https://dummyimage.com/350x324/666666/ffffff.jpg',
         price: 120000,
+        name: 'Shoe for women',
         info: 'Available in 44,45,46',
       },
     ],
@@ -88,6 +89,7 @@
       {
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
+        name: 'Shoe for women',
         info: 'Available in 44,45,46',
       },
       {
@@ -98,6 +100,7 @@
       {
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
+        name: 'Shoe for women',
         info: 'Available in 44,45,46',
       }
     ],

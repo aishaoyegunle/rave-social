@@ -18,12 +18,12 @@
         </div>
         <div class="item-actions">
             <div class="item__quantity">
-                <span class="item-btn">-</span>
+                <span class="item-btn" @click="decrement">-</span>
                 <span class="item-count">{{quantity}}</span>
-                <span class="item-btn">+</span>
+                <span class="item-btn" @click="increment">+</span>
             </div>
             <div class="item__remove">
-                <a href="">Remove Item</a>
+                <a @click="removeItem">Remove Item</a>
             </div>
         </div>
     </div>
@@ -35,8 +35,21 @@
     props: {
       product: { type: Object, required: true},
       quantity: { type: Number, required: true},
+      index: { type: Number, required: true},
     },
-
+    methods: {
+      increment() {
+        this.$store.commit('INCREMENT_QUANTITY', this.index);
+      },
+      decrement() {
+        if (this.quantity > 0) {
+         this.$store.commit('DECREMENT_QUANTITY', this.index);
+        }
+      },
+      removeItem() {
+          this.$store.commit('REMOVE_FROM_CART', this.index);
+      }
+    }
   }
 </script>
 
