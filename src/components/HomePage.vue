@@ -172,12 +172,6 @@
 
             }
         }
-
-        .products-list {
-            /*margin-top: -$base-spacing * 4;
-            margin-bottom: -$base-spacing * 8;*/
-        }
-
         .products {
 
             &--row {
