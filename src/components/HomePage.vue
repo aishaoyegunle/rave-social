@@ -38,18 +38,21 @@
   const products = {
     firstProducts: [
       {
+        id: 'f003',
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Gucci bag for men',
         info: 'Available in 44,45,46',
       },
       {
+        id: 'f004',
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Gucci bag for men',
         info: 'Available in 44,45,46',
       },
       {
+        id: 'f005',
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Gucci bag for men',
@@ -58,12 +61,14 @@
     ],
     secondProducts: [
       {
+        id: 'f006',
         src: 'https://dummyimage.com/350x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Shoe for women',
         info: 'Available in 44,45,46',
       },
       {
+        id: 'f007',
         src: 'https://dummyimage.com/648x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Suede shoe',
@@ -72,12 +77,14 @@
     ],
     thirdProducts: [
       {
+        id: 'f008',
         src: 'https://dummyimage.com/648x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Italian Handbag',
         info: 'Available in 44,45,46',
       },
       {
+        id: 'f009',
         src: 'https://dummyimage.com/350x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Shoe for women',
@@ -86,17 +93,20 @@
     ],
     lastProducts: [
       {
+        id: 'f010',
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Shoe for women',
         info: 'Available in 44,45,46',
       },
       {
+        id: 'f011',
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
         info: 'Available in 44,45,46',
       },
       {
+        id: 'f012',
         src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
         price: 120000,
         name: 'Shoe for women',

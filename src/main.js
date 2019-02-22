@@ -8,6 +8,10 @@ Vue.use(FlashMessage);
 
 Vue.config.productionTip = false;
 
+Vue.filter( 'currency', function(value){
+  return "N " + parseFloat(value).toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "0,");
+})
+
 new Vue({
   store,
   router,

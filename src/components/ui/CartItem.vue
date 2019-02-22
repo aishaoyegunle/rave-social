@@ -12,7 +12,7 @@
                     {{product.info}}
                 </div>
                 <div class="item__price">
-                    &#8358;{{product.price}}
+                   {{product.price | currency}}
                 </div>
             </div>
         </div>

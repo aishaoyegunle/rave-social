@@ -6,7 +6,7 @@
             <img :src="product.src" alt="product image"/>
         </div>
         <div class="product__content">
-            <div class="product--price"><h2>&#8358;{{product.price}}</h2></div>
+            <div class="product--price"><h2>{{product.price | currency}}</h2></div>
             <div class="product--info">{{product.info}}</div>
         </div>
 
@@ -18,12 +18,12 @@
         <div class="product--sm">
           <div class="product__image" @click="showModal">
             <img :src="product.src" alt="product image"/>
-            <div class="product__image--price">&#8358;{{product.price}}</div>
+            <div class="product__image--price">{{product.price | currency}}</div>
           </div>
           <div class="product__sub">
             <div class="product__info">{{product.info}}</div>
-            <div class="product__add" id="btn--add"><a @click="addItem">Add to cart</a></div>
-            <div class="product__remove" id="btn--remove"><a @click="addItem">Remove from cart</a></div>
+            <div class="product__add" id="btn--add" v-if="!isInCart"><a @click="addItem">Add to cart</a></div>
+            <div class="product__remove" id="btn--remove" v-if="isInCart"><a @click="removeItem">Remove from cart</a></div>
           </div>
         </div>
 
@@ -46,6 +46,11 @@ import ProductModal from '../ProductModal.vue'
         isModalVisible: false,
       };
     },
+    computed: {
+        isInCart(){
+            return this.$store.getters.isProductInCart(this.product.id);
+        }
+    },
     methods: {
       showModal() {
         this.isModalVisible = true;
@@ -55,8 +60,6 @@ import ProductModal from '../ProductModal.vue'
       },
        removeItem() {
           this.$store.commit('REMOVE_FROM_CART', this.index);
-          document.getElementById("btn--remove").style.display = "none";
-          document.getElementById("btn--add").style.display = "block";
       },
       addItem(){
           const data = {
@@ -64,8 +67,6 @@ import ProductModal from '../ProductModal.vue'
               quantity: this.quantity,
           }
         this.$store.commit('ADD_TO_CART', data);
-        document.getElementById("btn--add").style.display = "none";
-        document.getElementById("btn--remove").style.display = "block";
       }
     }
   }
@@ -163,9 +164,6 @@ import ProductModal from '../ProductModal.vue'
                 justify-content: space-between;
                 align-items: center;
                 padding: $base-spacing;
-                #btn--remove{
-                  display: none;
-                }
               }
               &__info{
                 color: $font-light;

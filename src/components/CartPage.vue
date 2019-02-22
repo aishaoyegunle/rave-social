@@ -9,7 +9,7 @@
             </cart-item>
             <div class="cart-total">
                 <span>Total</span>
-                <span>#480,000</span>
+                <span>{{total | currency}}</span>
             </div>
             <div class="other-text">
                 <router-link to="/">Continue Shopping</router-link>
@@ -46,6 +46,17 @@
     },
     created() {
       this.products = this.$store.getters.getProductsInCart;
+    },
+    computed: {
+      total(){
+        let total = 0;
+        for (let i = 0; i < this.products.length; i++) {
+          const quantity = this.products[i].quantity;
+          const price = this.products[i].product.price;
+          total += (quantity * price);
+        }
+        return total;
+      }
     },
     methods: {
       checkout() {
@@ -92,7 +103,7 @@
         //     }
         // }
         &__checkout {
-            margin-top: 10px;
+            margin-top: 2rem;
 
             button {
                 width: 100%;
@@ -100,7 +111,7 @@
                 color: $white;
                 padding: $base-spacing * 2;
                 cursor: pointer;
-                font-size: $base-font + 2;
+                font-size: $base-font +1;
 
                 &:hover {
                     background: darken($black, 50);

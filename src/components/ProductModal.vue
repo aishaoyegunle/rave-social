@@ -7,7 +7,7 @@
                         </div>
                         <div class="modal__img">
                             <img src="../assets/images/23594856-129246067847338-9082105923924656128-n@2x.png" alt="product img" >
-                            <div class="modal__img--price">{{product.price}}</div>
+                            <div class="modal__img--price">{{product.price | currency}}</div>
                         </div>
                         <div class="modal--text">
                             <h2>{{product.name}}</h2>
@@ -23,10 +23,10 @@
                             </span>
                             <span class="btn btn--plus" @click="increment">+</span>
                         </div>
-                        <div class="modal--add" id="btn--add" @click="addItem">
+                        <div class="modal--add" id="btn--add" @click="addItem" v-if="!isInCart">
                             <a class="btn btn--black" > ADD TO CART</a>
                         </div>
-                        <div class="modal--remove" id="btn--remove" @click="removeItem" >
+                        <div class="modal--remove" id="btn--remove" @click="removeItem" v-if="isInCart">
                             <a class="btn btn--black" > REMOVE FROM CART</a>
                         </div>
                         <div class="modal--checkout">
@@ -43,7 +43,12 @@ export default {
     props: ['product'],
     data() {
         return {
-            quantity: 1
+            quantity: 1,
+        }
+    },
+    computed: {
+        isInCart(){
+            return this.$store.getters.isProductInCart(this.product.id);
         }
     },
     methods: {
@@ -58,8 +63,6 @@ export default {
       },
        removeItem() {
           this.$store.commit('REMOVE_FROM_CART', this.index);
-          document.getElementById("btn--remove").style.display = "none";
-          document.getElementById("btn--add").style.display = "block";
       },
       addItem(){
           const data = {
@@ -68,10 +71,8 @@ export default {
           }
         this.$store.commit('ADD_TO_CART', data);
         this.close();
-        document.getElementById("btn--add").style.display = "none";
-        document.getElementById("btn--remove").style.display = "block";
       }
-    },
+    }   
 }
 </script>
 
@@ -107,10 +108,6 @@ export default {
         @media all and (max-width: $small-tablet) {
             margin-top: $base-spacing*8;
           }
-
-        #btn--remove{
-            display: none;
-        }
     }
 
     &--close{

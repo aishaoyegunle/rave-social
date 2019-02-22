@@ -20,6 +20,7 @@ export default new Vuex.Store({
       },
       {
         product: {
+          id: 'f002',
           src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
           price: 240000,
           name: 'Gucci Flops: Men shoe',
@@ -56,6 +57,10 @@ export default new Vuex.Store({
     getProductInModal: state => state.productInModal,
     getProductsInCart: (state) => state.productsInCart,
     getCartCount: (state) => state.productsInCart.length,
+    isProductInCart: (state) => (id) => {
+     const isPresent =  state.productsInCart.some((el) => el.product.id === id)
+     return isPresent;
+    }
   }
 });
 
