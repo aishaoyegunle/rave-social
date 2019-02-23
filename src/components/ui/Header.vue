@@ -5,7 +5,7 @@
                 <div class="heading__top--lg-cart" v-if="showCart==false">
                     <router-link to="/checkout">
                         <img src="../../assets/images/cart@2x.png" alt="Cart">
-                        <span class="label">{{cartCount}}</span>
+                        <!-- <span class="label">{{cartCount}}</span> -->
                         <span>Cart</span>
                     </router-link>
                 </div>

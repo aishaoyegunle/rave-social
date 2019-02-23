@@ -38,21 +38,21 @@
     firstProducts: [
       {
         id: 'f003',
-        src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         name: 'Gucci bag for men',
         info: 'Available in 44,45,46',
       },
       {
         id: 'f004',
-        src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1475226314338-7282a213e393?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         name: 'Gucci bag for men',
         info: 'Available in 44,45,46',
       },
       {
         id: 'f005',
-        src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1542841791-bf92ca449f11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         name: 'Gucci bag for men',
         info: 'Available in 44,45,46',
@@ -61,7 +61,7 @@
     secondProducts: [
       {
         id: 'f006',
-        src: 'https://dummyimage.com/350x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         name: 'Shoe for women',
         info: 'Available in 44,45,46',
@@ -84,7 +84,7 @@
       },
       {
         id: 'f009',
-        src: 'https://dummyimage.com/350x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         name: 'Shoe for women',
         info: 'Available in 44,45,46',
@@ -93,20 +93,20 @@
     lastProducts: [
       {
         id: 'f010',
-        src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1542841791-bf92ca449f11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         name: 'Shoe for women',
         info: 'Available in 44,45,46',
       },
       {
         id: 'f011',
-        src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1475226314338-7282a213e393?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         info: 'Available in 44,45,46',
       },
       {
         id: 'f012',
-        src: 'https://dummyimage.com/324x324/666666/ffffff.jpg',
+        src: 'https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 120000,
         name: 'Shoe for women',
         info: 'Available in 44,45,46',
@@ -171,7 +171,10 @@
             }
         }
         .products {
-
+          // &-list{
+          //     position: absolute;
+          //     margin-top: -5rem;
+          //   }
             &--row {
                 display: flex;
                 justify-content: space-between;

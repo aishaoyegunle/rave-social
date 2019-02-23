@@ -102,7 +102,7 @@ import ProductModal from '../ProductModal.vue'
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(200, 100, 180, 0.2);
+            background: rgba(90, 88, 90, 0.342);
         }
 
         &__content {
